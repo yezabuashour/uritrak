@@ -3,11 +3,14 @@ const router  = express.Router();
 
 const patientController = require('../controllers/patient');
 
-router.get('/api/patient', patientController.getAllPatients);
-router.post('/api/patient', patientController.newPatient);
+router.get('/api/patient', patientController.getAllPatientsAsync);
+router.post('/api/patient', patientController.postNewPatientAsync);
 
-router.get('/api/patient/:_id', patientController.getPatient);
-router.post('/api/patient/:_id', patientController.updatePatient);
-router.delete('/api/patient/:_id', patientController.deletePatient);
+router.get('/api/patient/:_id', patientController.getPatientAsync);
+router.post('/api/patient/:_id', patientController.postPatientUpdateAsync);
+router.delete('/api/patient/:_id', patientController.deletePatientAsync);
+
+router.get('/patients', patientController.viewAllPatientsAsync);
+router.get('/patients/:_id', patientController.viewPatientAsync);
 
 module.exports = router;

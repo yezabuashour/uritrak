@@ -6,6 +6,7 @@ const helmet = require('helmet');
 
 const app = express();
 
+app.set('view engine', 'pug');
 app.use(helmet());
 
 // allows for json body posts

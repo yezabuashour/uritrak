@@ -1,0 +1,22 @@
+doctype html
+
+html(lang='en')
+  body
+  <p>#{patient}</p>
+    //- table.table.table-striped
+    //-   tr
+    //-     th Name
+    //-     th Position
+    //-     th Address
+    //-     th Phone
+    //-     th Liked Foods
+    //-     th Disliked Foods
+
+    //-   each n in pple
+    //-     tr
+    //-       td= n.name
+    //-       td= n.position
+    //-       td= n.address
+    //-       td= n.phone
+    //-       td= n.food.likes.join(" and ")
+    //-       td= n.food.dislikes.join(" and ")
