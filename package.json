@@ -14,7 +14,6 @@
     "chai-http": "^4.3.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "express-openid-connect": "^2.3.0",
     "helmet": "^4.4.1",
     "mocha": "^8.2.1",
     "mongoose": "^5.11.15",
