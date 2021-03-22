@@ -4,7 +4,6 @@ const express = require('express');
 const routes = require('./routes/patient');
 const helmet = require('helmet');
 
-const express = require("express");
 const path = require("path");
 
 const app = express();
