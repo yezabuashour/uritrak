@@ -35,6 +35,9 @@ const listener = app.listen(process.env.PORT || 3000, () => {
     console.log('Your app is listening on port ' + listener.address().port)
 })
 
+app.get('/', (req, res) => {
+  res.send("Hello Wonderful World!");
+});
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 // app.use(express.static(path.join(__dirname, "..", "public")));
