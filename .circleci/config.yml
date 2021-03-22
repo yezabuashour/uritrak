@@ -4,11 +4,9 @@ jobs:
     steps:
       - checkout
       - heroku/install
-      - run:
-          command: >
-            echo "The command above installs Heroku, the command below deploys.
-            What you do inbetween is up to you!" && echo $SHELL
-            heroku regions --json
+      # - run:
+      #     command: >
+      #       echo "The command above installs Heroku, the command below deploys.
       - heroku/deploy-via-git
 orbs:
   heroku: circleci/heroku@1.2.5
