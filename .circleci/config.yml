@@ -7,7 +7,7 @@ jobs:
       - run:
           command: >
             echo "The command above installs Heroku, the command below deploys.
-            What you do inbetween is up to you!"
+            What you do inbetween is up to you!" && echo $SHELL
       - heroku/deploy-via-git
 orbs:
   heroku: circleci/heroku@1.2.5
