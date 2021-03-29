@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<style>
+	body  {background-color: lightblue; width:80%; margin-left: auto; margin-right: auto;}
+	h1    {color: white; text-align: center; font-family: sans-serif;}
+	p     {color: white;}
+	table, th, td {font-family: sans-serif; border-collapse:collapse}
+	th, td, tr {padding: 4px; border-bottom: 1px solid black;}
+	table {width:100%;}
+	table {margin-left: auto; margin-right: auto;}
+	tr:hover {background-color: #f5f5f5;}
+	th   {color: white; background-color: black; text-align: left;}
+	tr[data-href] {cursor: pointer;}
+</style>
+
+<body>
+	<h1>{{id[1]}} {{id[2]}}</h1>
+	<p>Here is a paragraph to display some background.</p>
+	<table>
+		<caption><b>Patient Information</b></caption>
+		<tbody>
+			<tr>
+				<th><b>Patient ID</b></th>
+				<th>{{id[0]}}</th>
+			</tr>
+			<tr>
+				<td><b>First Name</b></td>
+				<td>{{id[1]}}</td>
+			</tr>
+			<tr>
+				<td><b>Last Name</b></td>
+				<td>{{id[2]}}</td>
+			</tr>
+			<tr>
+				<td><b>Date of Birth</b></td>
+				<td>{{id[3]}}</td>
+			</tr>
+			<tr>
+				<td><b>Gender</b></td>
+				<td>{{id[4]}}</td>
+			</tr>
+			<tr>
+				<td><b>Weight</b></td>
+				<td>{{id[5]}}</td>
+			</tr>
+			<tr>
+				<td><b>Hometown</b></td>
+				<td>{{id[6]}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+</body>
+</html>
