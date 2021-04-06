@@ -27,6 +27,10 @@ test_cl = [[33, 32, 31, 36, 37, 36, 32, 31, 30, 30, 33],
 app = Flask(__name__)
 
 @app.route("/")
+def login():
+	return render_template("login.html")
+
+@app.route("/home")
 def home():
 	return render_template("index.html", id=patients, l=length)
 
