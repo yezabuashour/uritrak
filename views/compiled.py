@@ -41,6 +41,9 @@ def login():
 	return render_template("login.html")
 
 @app.route("/patient")
+	return render_template("login.html")
+
+@app.route("/home")
 def home():
 	return render_template("index.html", id=patients, l=length)
 

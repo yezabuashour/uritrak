@@ -43,6 +43,7 @@ function myFunction2() {
 	if (y == "uritrak" && z == "admin") {
 		document.getElementById("spot").innerHTML = "Yay!";
 		window.location.href = "http://127.0.0.1:5000/patient";
+		window.location.href = "http://127.0.0.1:5000/home";
 	} else {
 		document.getElementById("spot").innerHTML = "Fuck Off!";
 	}
@@ -60,6 +61,7 @@ input1.addEventListener("keyup", function(event) {
 		} else {
 			document.getElementById("spot").innerHTML = "Fuck Off!";
 		}
+		window.location.href = "http://127.0.0.1:5000/home";
 	}
 });
 
