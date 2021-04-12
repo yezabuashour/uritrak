@@ -42,6 +42,7 @@ function myFunction2() {
 	var z = document.getElementById("password").value;
 	if (y == "uritrak" && z == "admin") {
 		document.getElementById("spot").innerHTML = "Yay!";
+		window.location.href = "http://127.0.0.1:5000/patient";
 		window.location.href = "http://127.0.0.1:5000/home";
 	} else {
 		document.getElementById("spot").innerHTML = "Fuck Off!";
@@ -52,6 +53,14 @@ var input1 = document.getElementById("password");
 input1.addEventListener("keyup", function(event) {
 	if (event.keyCode === 13) {
 		event.preventDefault();
+		var y = document.getElementById("username").value;
+		var z = document.getElementById("password").value;
+		if (y == "uritrak" && z == "admin") {
+			document.getElementById("spot").innerHTML = "Yay!";
+			window.location.href = "http://127.0.0.1:5000/patient";
+		} else {
+			document.getElementById("spot").innerHTML = "Fuck Off!";
+		}
 		window.location.href = "http://127.0.0.1:5000/home";
 	}
 });
