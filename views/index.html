@@ -29,22 +29,15 @@
   <tbody>
   <tr>
     <th>Patient ID</th>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Date of Birth</th>
-    <th>Gender</th>
-    <th>Weight</th>
-    <th>Hometown</th>
+    <th>Full Name</th>
+    <th>Status</th>
+    <th>Last Measurement</th>
   </tr>
   {% for p in range(l) %}
-    <tr data-href="http://127.0.0.1:5000/{{p}}">
+    <tr data-href="http://127.0.0.1:5000/patient/{{p}}">
       <td>{{id[p][0]}}</td>
       <td>{{id[p][1]}}</td>
-      <td>{{id[p][2]}}</td>
-      <td>{{id[p][3]}}</td>
-      <td>{{id[p][4]}}</td>
       <td>{{id[p][5]}}</td>
-      <td>{{id[p][6]}}</td>
     </tr>
   {% endfor %}
   </tbody>
