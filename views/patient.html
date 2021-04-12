@@ -15,7 +15,7 @@
 </style>
 
 <body>
-	<h1>{{id[1]}} {{id[2]}}</h1>
+	<h1>{{id[1]}}</h1>
 	<p>Here is a paragraph to display some background.</p>
 	<table>
 		<caption><b>Patient Information</b></caption>
@@ -25,28 +25,36 @@
 				<th>{{id[0]}}</th>
 			</tr>
 			<tr>
-				<td><b>First Name</b></td>
+				<td><b>Full Name</b></td>
 				<td>{{id[1]}}</td>
 			</tr>
 			<tr>
-				<td><b>Last Name</b></td>
+				<td><b>Address</b></td>
 				<td>{{id[2]}}</td>
 			</tr>
 			<tr>
-				<td><b>Date of Birth</b></td>
+				<td><b>Phone Number</b></td>
 				<td>{{id[3]}}</td>
 			</tr>
 			<tr>
-				<td><b>Gender</b></td>
+				<td><b>Birthdate</b></td>
 				<td>{{id[4]}}</td>
 			</tr>
 			<tr>
-				<td><b>Weight</b></td>
-				<td>{{id[5]}}</td>
+				<td><b>Gender</b></td>
+				<td>{{id[6]}}</td>
 			</tr>
 			<tr>
-				<td><b>Hometown</b></td>
-				<td>{{id[6]}}</td>
+				<td><b>Marital Status</b></td>
+				<td>{{id[7]}}</td>
+			</tr>
+			<tr>
+				<td><b>Race</b></td>
+				<td>{{id[8]}}</td>
+			</tr>
+			<tr>
+				<td><b>Status</b></td>
+				<td>{{id[5]}}</td>
 			</tr>
 		</tbody>
 	</table>
@@ -78,20 +86,20 @@
 			titleFontColor: "Black",
 			interval: 10,
 			stripLines: [{
-				startValue: 30,
+				startValue: 25,
 				endValue: 40,
 				color: "#b3ffb9",
 				label: "Healthy Range",
 				labelFontColor: "Black",
 				labelBackgroundColor: "#b3ffb9",
-				labelAlign: "near"
+				labelAlign: "far"
 			}],
-			minimum: 20,
-			maximum: 50
+			minimum: 10,
+			maximum: 60
 			
 		},
 		data: [{     
-			yValueFormatString: "# Units",
+			yValueFormatString: "# mEq/L",
 			xValueFormatString: "#",   
 			type: "spline",
 	      	indexLabelFontSize: 16,
@@ -131,7 +139,6 @@
 
 
 <!-- TRYING SOMETHING NEW-->
-<!-- trying something old-->
 
 
 
