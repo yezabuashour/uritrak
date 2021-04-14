@@ -15,53 +15,151 @@
 </style>
 
 <body>
-	<h1>{{id[1]}}</h1>
+	<h1>{{data['name']}}</h1>
 	<p>Here is a paragraph to display some background.</p>
 	<table>
 		<caption><b>Patient Information</b></caption>
 		<tbody>
 			<tr>
 				<th><b>Patient ID</b></th>
-				<th>{{id[0]}}</th>
+				<th>{{data['_id']}}</th>
 			</tr>
 			<tr>
 				<td><b>Full Name</b></td>
-				<td>{{id[1]}}</td>
+				<td>{{data['name']}}</td>
 			</tr>
 			<tr>
 				<td><b>Address</b></td>
-				<td>{{id[2]}}</td>
+				<td>{{data['address']}}</td>
 			</tr>
 			<tr>
 				<td><b>Phone Number</b></td>
-				<td>{{id[3]}}</td>
+				<td>{{data['phone']}}</td>
 			</tr>
 			<tr>
 				<td><b>Birthdate</b></td>
-				<td>{{id[4]}}</td>
+				<td>{{data['birthdate'][0:10]}}</td>
 			</tr>
 			<tr>
 				<td><b>Gender</b></td>
-				<td>{{id[6]}}</td>
+				<td>{{data['gender']}}</td>
 			</tr>
 			<tr>
 				<td><b>Marital Status</b></td>
-				<td>{{id[7]}}</td>
+				<td>{{data['martialStatus']}}</td>
 			</tr>
 			<tr>
 				<td><b>Race</b></td>
-				<td>{{id[8]}}</td>
+				<td>{{data['race']}}</td>
 			</tr>
 			<tr>
 				<td><b>Status</b></td>
-				<td>{{id[5]}}</td>
+				<td>{{data['status']}}</td>
 			</tr>
 		</tbody>
 	</table>
 
+<p id="spot" style="text-align:center; color:black; font-size:200%"></p>
+	
 <script>
-	var cl_data = {{ data }};
-
+	{% if data['measurements']|length == 0 %}
+		document.getElementById("spot").innerHTML = "No Measurements Detected!";
+	{% endif %}
+	{% if data['measurements']|length == 1 %}
+		var y = [
+		         {{data['measurements'][0]['chloride']}}
+		        ];
+	{% endif %}
+	{% if data['measurements']|length == 2 %}
+		var y = [
+		         {{data['measurements'][0]['chloride']}},
+		         {{data['measurements'][1]['chloride']}}
+		        ];
+	{% endif %}
+	{% if data['measurements']|length == 3 %}
+		var y = [
+		         {{data['measurements'][0]['chloride']}},
+		         {{data['measurements'][1]['chloride']}},
+		         {{data['measurements'][2]['chloride']}}
+		        ];
+	{% endif %}
+	{% if data['measurements']|length == 4 %}
+		var y = [
+		         {{data['measurements'][0]['chloride']}},
+		         {{data['measurements'][1]['chloride']}},
+		         {{data['measurements'][2]['chloride']}},
+		         {{data['measurements'][3]['chloride']}}
+		        ];
+	{% endif %}
+	{% if data['measurements']|length == 5 %}
+		var y = [
+		         {{data['measurements'][0]['chloride']}},
+		         {{data['measurements'][1]['chloride']}},
+		         {{data['measurements'][2]['chloride']}},
+		         {{data['measurements'][3]['chloride']}},
+		         {{data['measurements'][4]['chloride']}}
+		        ];
+	{% endif %}
+	{% if data['measurements']|length == 6 %}
+		var y = [
+		         {{data['measurements'][0]['chloride']}},
+		         {{data['measurements'][1]['chloride']}},
+		         {{data['measurements'][2]['chloride']}},
+		         {{data['measurements'][3]['chloride']}},
+		         {{data['measurements'][4]['chloride']}},
+		         {{data['measurements'][5]['chloride']}}
+		        ];
+	{% endif %}
+	{% if data['measurements']|length == 7 %}
+		var y = [
+		         {{data['measurements'][0]['chloride']}},
+		         {{data['measurements'][1]['chloride']}},
+		         {{data['measurements'][2]['chloride']}},
+		         {{data['measurements'][3]['chloride']}},
+		         {{data['measurements'][4]['chloride']}},
+		         {{data['measurements'][5]['chloride']}},
+		         {{data['measurements'][6]['chloride']}}
+		        ];
+	{% endif %}
+	{% if data['measurements']|length == 8 %}
+		var y = [
+		         {{data['measurements'][0]['chloride']}},
+		         {{data['measurements'][1]['chloride']}},
+		         {{data['measurements'][2]['chloride']}},
+		         {{data['measurements'][3]['chloride']}},
+		         {{data['measurements'][4]['chloride']}},
+		         {{data['measurements'][5]['chloride']}},
+		         {{data['measurements'][6]['chloride']}},
+		         {{data['measurements'][7]['chloride']}}
+		        ];
+	{% endif %}
+	{% if data['measurements']|length == 9 %}
+		var y = [
+		         {{data['measurements'][0]['chloride']}},
+		         {{data['measurements'][1]['chloride']}},
+		         {{data['measurements'][2]['chloride']}},
+		         {{data['measurements'][3]['chloride']}},
+		         {{data['measurements'][4]['chloride']}},
+		         {{data['measurements'][5]['chloride']}},
+		         {{data['measurements'][6]['chloride']}},
+		         {{data['measurements'][7]['chloride']}},
+		         {{data['measurements'][8]['chloride']}}
+		        ];
+	{% endif %}
+	{% if data['measurements']|length == 10 %}
+		var y = [
+		         {{data['measurements'][0]['chloride']}},
+		         {{data['measurements'][1]['chloride']}},
+		         {{data['measurements'][2]['chloride']}},
+		         {{data['measurements'][3]['chloride']}},
+		         {{data['measurements'][4]['chloride']}},
+		         {{data['measurements'][5]['chloride']}},
+		         {{data['measurements'][6]['chloride']}},
+		         {{data['measurements'][7]['chloride']}},
+		         {{data['measurements'][8]['chloride']}},
+		         {{data['measurements'][9]['chloride']}}
+		        ];
+	{% endif %}
 	window.onload = function () {
 
 	var chart = new CanvasJS.Chart("chartContainer", {
@@ -100,32 +198,27 @@
 		},
 		data: [{     
 			yValueFormatString: "# mEq/L",
-			xValueFormatString: "#",   
+			xValueFormatString: "Day #",   
 			type: "spline",
 	      	indexLabelFontSize: 16,
 	      	markerColor: "DarkSlateGrey",
 	      	lineColor: "SlateGrey",
 			dataPoints: [
-				{ y: cl_data[0] },
-				{ y: cl_data[1] },
-				{ y: cl_data[2] },
-				{ y: cl_data[3] },
-				{ y: cl_data[4], markerColor: "#ff6666"},
-				{ y: cl_data[5] },
-				{ y: cl_data[6] },
-				{ y: cl_data[7] },
-				{ y: cl_data[8], indexLabel: "\u2193 lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
-				{ y: cl_data[9] },
-				{ y: cl_data[10] },
-				{ y: cl_data[11] }
+				{ y: y[0] },
+				{ y: y[1] },
+				{ y: y[2] },
+				{ y: y[3] },
+				{ y: y[4] },
+				{ y: y[5] },
+				{ y: y[6] },
+				{ y: y[7] },
+				{ y: y[8] },
+				{ y: y[9] }
 			]
 		}]
 	});
 	chart.render();
 	}
-
-
-
 
 </script>
 
@@ -136,11 +229,6 @@
 	<br>
 	<div id="chartContainer" style="height: 370px; width: 100%;"></div>
 </body>
-
-
-<!-- TRYING SOMETHING NEW-->
-
-
 
 </body>
 </html>
