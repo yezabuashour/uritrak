@@ -23,7 +23,7 @@
 		<input id="mybtn" type="button" value="Sign in" onclick="myFunction2()"><br>
 </form>
 
-<p id="spot"></p>
+<p id="spot" style="color:black; font-size:150%"></p>
 
 </body>
 
@@ -41,11 +41,11 @@ function myFunction2() {
 	var y = document.getElementById("username").value;
 	var z = document.getElementById("password").value;
 	if (y == "uritrak" && z == "admin") {
-		document.getElementById("spot").innerHTML = "Yay!";
+		document.getElementById("spot").innerHTML = "Logging in...";
 		window.location.href = "http://127.0.0.1:5000/patient";
 		window.location.href = "http://127.0.0.1:5000/home";
 	} else {
-		document.getElementById("spot").innerHTML = "Fuck Off!";
+		document.getElementById("spot").innerHTML = "Incorrect Password!";
 	}
 }
 
@@ -56,10 +56,10 @@ input1.addEventListener("keyup", function(event) {
 		var y = document.getElementById("username").value;
 		var z = document.getElementById("password").value;
 		if (y == "uritrak" && z == "admin") {
-			document.getElementById("spot").innerHTML = "Yay!";
+			document.getElementById("spot").innerHTML = "Logging in...";
 			window.location.href = "http://127.0.0.1:5000/patient";
 		} else {
-			document.getElementById("spot").innerHTML = "Fuck Off!";
+			document.getElementById("spot").innerHTML = "Incorrect Password!";
 		}
 		window.location.href = "http://127.0.0.1:5000/home";
 	}
