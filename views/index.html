@@ -20,9 +20,9 @@
 
 <body>
 <h1>Uritrak Physician View</h1>
-<p>WARNING: You are viewing an unstable alpha version
-   of the Uritrak Physician View. Please update to the
-   <a href="https://howdy.tamu.edu">newest version</a>.</p>
+<p>The Uritrak Physician Viewer is currently under development. Please check
+   <a href="https://github.com/yezabuashour/uritrak" target="_blank">our github</a>
+   to ensure you are using the latest version.</p>
 
 <table>
   <caption text-align:center><b>Patient Information Panel</b>
@@ -35,9 +35,14 @@
   </tr>
   {% for p in range(l) %}
     <tr data-href="http://127.0.0.1:5000/patient/{{p}}">
-      <td>{{id[p][0]}}</td>
-      <td>{{id[p][1]}}</td>
-      <td>{{id[p][5]}}</td>
+      <td>{{data[p]['_id']}}</td>
+      <td>{{data[p]['name']}}</td>
+      <td>{{data[p]['status']}}</td>
+      {% if j[p] > 1: %}
+        <td>{{data[p]['measurements'][j[p]-1]['dateTime'][4:15]}}</td>
+      {% else %}
+        <td>No Measurements</td>
+      {% endif %}
     </tr>
   {% endfor %}
   </tbody>
