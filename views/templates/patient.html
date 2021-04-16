@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<style>
+	body  {background-color: lightblue; width:80%; margin-left: auto; margin-right: auto;}
+	h1    {color: white; text-align: center; font-family: sans-serif;}
+	p     {color: white;}
+	table, th, td {font-family: sans-serif; border-collapse:collapse}
+	th, td, tr {padding: 4px; border-bottom: 1px solid black;}
+	table {width:100%;}
+	table {margin-left: auto; margin-right: auto;}
+	tr:hover {background-color: #f5f5f5;}
+	th   {color: white; background-color: black; text-align: left;}
+	tr[data-href] {cursor: pointer;}
+</style>
+
+<body>
+	<h1>{{id[1]}}</h1>
+	<p>Here is a paragraph to display some background.</p>
+	<table>
+		<caption><b>Patient Information</b></caption>
+		<tbody>
+			<tr>
+				<th><b>Patient ID</b></th>
+				<th>{{id[0]}}</th>
+			</tr>
+			<tr>
+				<td><b>Full Name</b></td>
+				<td>{{id[1]}}</td>
+			</tr>
+			<tr>
+				<td><b>Address</b></td>
+				<td>{{id[2]}}</td>
+			</tr>
+			<tr>
+				<td><b>Phone Number</b></td>
+				<td>{{id[3]}}</td>
+			</tr>
+			<tr>
+				<td><b>Birthdate</b></td>
+				<td>{{id[4]}}</td>
+			</tr>
+			<tr>
+				<td><b>Gender</b></td>
+				<td>{{id[6]}}</td>
+			</tr>
+			<tr>
+				<td><b>Marital Status</b></td>
+				<td>{{id[7]}}</td>
+			</tr>
+			<tr>
+				<td><b>Race</b></td>
+				<td>{{id[8]}}</td>
+			</tr>
+			<tr>
+				<td><b>Status</b></td>
+				<td>{{id[5]}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+<script>
+	var cl_data = {{ data }};
+
+	window.onload = function () {
+
+	var chart = new CanvasJS.Chart("chartContainer", {
+		animationEnabled: true,
+		theme: "light2",
+		title:{
+			text: "Patient Chloride Measurements"
+		},
+		axisX: {
+			title: "Date of Measurement",
+			titleFontColor: "Black",
+			interval: 1,
+			crosshair: {
+				enabled: true,
+				snapToDataPoint: true,
+				color: "DarkSlateGrey",
+				valueFormatString: "####",
+			}
+		},
+		axisY: {
+			title: "Chloride mEq",
+			titleFontColor: "Black",
+			interval: 10,
+			stripLines: [{
+				startValue: 25,
+				endValue: 40,
+				color: "#b3ffb9",
+				label: "Healthy Range",
+				labelFontColor: "Black",
+				labelBackgroundColor: "#b3ffb9",
+				labelAlign: "far"
+			}],
+			minimum: 10,
+			maximum: 60
+			
+		},
+		data: [{     
+			yValueFormatString: "# mEq/L",
+			xValueFormatString: "#",   
+			type: "spline",
+	      	indexLabelFontSize: 16,
+	      	markerColor: "DarkSlateGrey",
+	      	lineColor: "SlateGrey",
+			dataPoints: [
+				{ y: cl_data[0] },
+				{ y: cl_data[1] },
+				{ y: cl_data[2] },
+				{ y: cl_data[3] },
+				{ y: cl_data[4], markerColor: "#ff6666"},
+				{ y: cl_data[5] },
+				{ y: cl_data[6] },
+				{ y: cl_data[7] },
+				{ y: cl_data[8], indexLabel: "\u2193 lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
+				{ y: cl_data[9] },
+				{ y: cl_data[10] },
+				{ y: cl_data[11] }
+			]
+		}]
+	});
+	chart.render();
+	}
+
+
+
+
+</script>
+
+
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+<body>
+	<br>
+	<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+</body>
+
+
+<!-- TRYING SOMETHING NEW-->
+
+
+
+</body>
+</html>

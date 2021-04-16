@@ -1,4 +1,5 @@
-const { request } = require('chai');
+const { json } = require('express');
+const request = require('request');
 const Patient = require('../models/patient');
 
 // returns array of all patients
@@ -155,11 +156,27 @@ const deletePatientAsync = async (req, res) => {
 const viewAllPatientsAsync = async (req, res) => {
     try {
         let patients = await mongoGetAllPatientsAsync();
-        return res.render("allPatients", { patients: patients.toString() });
+        patients = JSON.stringify(patients);
+        let options = {
+            url: 'http://127.0.0.1:5000/patient',
+            body: patients
+        };
+        request(options, function (error, response, body) {
+            console.error('error:', error); // Print the error
+            console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+            console.log('body:', body); // Print the data received
+            res.send(body); //Display the response on the website
+        });
     } catch (err) {
-        console.error(err);
         return res.json({ Error: err });
     }
+    // try {
+    //     let patients = await mongoGetAllPatientsAsync();
+    //     return res.render("allPatients", { patients: patients.toString() });
+    // } catch (err) {
+    //     console.error(err);
+    //     return res.json({ Error: err });
+    // }
 };
 
 // renders view for /patients/:_id

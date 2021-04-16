@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<style>
+	body  {background-color: lightblue; width:80%; margin-left: auto; margin-right: auto;}
+	h1    {color: white; text-align: center; font-family: sans-serif;}
+	p     {color: black; text-align: center;}
+	form  {text-align: center;}
+	label {width: 85px; display: inline-block;}
+</style>
+
+<body>
+	<h1>Uritrak Login Page</h1>
+	<p text-align:center>Login into the Uritrak using your physician's credentials.</p>
+
+	<form action="/action_page.php">
+		<label for="username">Username:</label>
+		<input type="text" id="username" name="username"><br><br>
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password"><br><br>
+		<input type="checkbox" onclick="myFunction()">Show Password<br><br>
+		<input id="mybtn" type="button" value="Sign in" onclick="myFunction2()"><br>
+</form>
+
+<p id="spot"></p>
+
+</body>
+
+<script>
+function myFunction() {
+	var x = document.getElementById("password");
+	if (x.type === "password") {
+		x.type = "text";
+	} else {
+		x.type = "password";
+	}
+}
+
+function myFunction2() {
+	var y = document.getElementById("username").value;
+	var z = document.getElementById("password").value;
+	if (y == "uritrak" && z == "admin") {
+		document.getElementById("spot").innerHTML = "Yay!";
+		window.location.href = "http://127.0.0.1:5000/patient";
+		window.location.href = "http://127.0.0.1:5000/home";
+	} else {
+		document.getElementById("spot").innerHTML = "Fuck Off!";
+	}
+}
+
+var input1 = document.getElementById("password");
+input1.addEventListener("keyup", function(event) {
+	if (event.keyCode === 13) {
+		event.preventDefault();
+		var y = document.getElementById("username").value;
+		var z = document.getElementById("password").value;
+		if (y == "uritrak" && z == "admin") {
+			document.getElementById("spot").innerHTML = "Yay!";
+			window.location.href = "http://127.0.0.1:5000/patient";
+		} else {
+			document.getElementById("spot").innerHTML = "Fuck Off!";
+		}
+		window.location.href = "http://127.0.0.1:5000/home";
+	}
+});
+
+</script>
+
+</html>
