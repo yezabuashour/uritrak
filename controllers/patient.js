@@ -158,7 +158,7 @@ const viewAllPatientsAsync = async (req, res) => {
         let patients = await mongoGetAllPatientsAsync();
         patients = JSON.stringify(patients);
         let options = {
-            url: 'http://127.0.0.1:5000/patient',
+            url: 'https://uritrak-views.herokuapp.com/patient',
             body: patients
         };
         request(options, function (error, response, body) {
