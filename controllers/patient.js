@@ -158,7 +158,8 @@ const viewAllPatientsAsync = async (req, res) => {
         let patients = await mongoGetAllPatientsAsync();
         patients = JSON.stringify(patients);
         let options = {
-            url: 'https://uritrak-views.herokuapp.com/patient',
+            // url: 'https://uritrak-views.herokuapp.com/patient',
+            url: 'http://localhost:33507/patient',
             body: patients
         };
         request(options, function (error, response, body) {
@@ -182,11 +183,20 @@ const viewAllPatientsAsync = async (req, res) => {
 // renders view for /patients/:_id
 const viewPatientAsync = async (req, res) => {
     try {
-        let _id = req.params._id;
-        let patient = await mongoGetPatientAsync(_id);
-        return res.render("patient", { patient: patient.toString() });
+        let patients = await mongoGetPatientAsync(req.params._id);
+        patients = JSON.stringify(patients);
+        let options = {
+            // url: 'https://uritrak-views.herokuapp.com/patient',
+            url: 'http://localhost:33507/patient/' + req.params._id,
+            body: patients
+        };
+        request(options, function (error, response, body) {
+            console.error('error:', error); // Print the error
+            console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+            console.log('body:', body); // Print the data received
+            res.send(body); //Display the response on the website
+        });
     } catch (err) {
-        console.error(err);
         return res.json({ Error: err });
     }
 };
